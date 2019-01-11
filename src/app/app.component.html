@@ -1,21 +1,53 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/cli">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
 
-<router-outlet></router-outlet>
+
+<wj-flex-grid [itemsSource]="data"   [childItemsPath]="'childs'" class="flex-table" id="host_element" >
+    <wj-flex-grid-column [header]="'#'" allow-dragging="false" [binding]="'SEQUENCE NUMBER'" id="host_element" [isRequired]="true" style="background-color:white;"></wj-flex-grid-column>
+    <wj-flex-grid-column [header]="'SEQUENCE'" format="p2" align="right" [binding]="'OPERATIONAL SEQUENCE'"   [isRequired]="false"></wj-flex-grid-column>
+    <wj-flex-grid-column [header]="'NUMBER'" [binding]="'COMPONENT NUMBER'"   [format]="'n0'" [isRequired]="false"></wj-flex-grid-column>
+    <wj-flex-grid-column [header]="'NAME'" [binding]="'COMPONENT NAME'"    [isRequired]="false">
+       <div>
+        <span class="glyphicon glyphicon-plus-sign"></span>
+        <span class="wj-glyph-plus"></span>
+       </div>
+    </wj-flex-grid-column>
+    <wj-flex-grid-column [header]="'CATEGORY'" [binding]="'ITEM CATEGORY'" isDisabled="false" width="*"   [isRequired]="false"></wj-flex-grid-column>
+    <wj-flex-grid-column [header]="'REVISION NUMBER'" #flex [binding]="'REVISION NUMBER'"   width="*" [isRequired]="false"></wj-flex-grid-column>
+    <wj-flex-grid-column [header]="'QUANTITY'" [binding]="'QUANTITY'"   width="*" [isRequired]="false"></wj-flex-grid-column>
+    <wj-flex-grid-column [header]="'UOM'" [binding]="'UOM'"   width="*" [isRequired]="false"></wj-flex-grid-column>
+    <wj-flex-grid-column [header]="'PROCUREMENT TYPE'" [binding]="'PROCUREMENT TYPE'"    [isRequired]="false"></wj-flex-grid-column>
+    <wj-flex-grid-column [header]="'UNIT COST'" [binding]="'UNIT COST'"    [isRequired]="false"></wj-flex-grid-column>
+    <wj-flex-grid-column [header]="'TOTAL COST'" [binding]="'TOTAL COST'"    [isRequired]="false"></wj-flex-grid-column>
+    <wj-flex-grid-column [header]="'CURRENCY'" [binding]="'CURRENCY'"    [isRequired]="false"></wj-flex-grid-column>
+    <wj-flex-grid-column [header]="'START DATE'" [binding]="'START DATE'"    [isRequired]="false"></wj-flex-grid-column>
+    <wj-flex-grid-column [header]="'END DATE'" [binding]="'END DATE'"    [isRequired]="false"></wj-flex-grid-column>
+    <wj-flex-grid-column [header]="'PART TYPE'" [binding]="'PART TYPE'"    [isRequired]="false"></wj-flex-grid-column>
+    <wj-flex-grid-column [header]="'YIELD'" [binding]="'YIELD'"    [isRequired]="false"></wj-flex-grid-column>
+    <wj-flex-grid-column [header]="'PLANNING PERCENTAGE'" [binding]="'PLANNING PERCENTAGE'"    [isRequired]="false"></wj-flex-grid-column>
+    <wj-flex-grid-column [header]="'CUSTOM ATTRIBUTES'"  allow-dragging="false" [binding]="'CUSTOM ATTRIBUTES'"    [isRequired]="false"></wj-flex-grid-column>
+</wj-flex-grid>
+<div class="btn-group" style="align:right; padding-left:30px;">
+        <button type="button" class="btn btn-default"
+            (click)="data.moveToFirstPage()"
+            [disabled]="data.pageIndex <= 0">
+            <span class="glyphicon glyphicon-fast-backward"></span>
+        </button>
+        <button type="button" class="btn btn-default"
+            (click)="data.moveToPreviousPage()"
+            [disabled]="data.pageIndex <= 0">
+            <span class="glyphicon glyphicon-step-backward"></span>
+        </button>
+        <button type="button" class="btn btn-default" disabled style="width:100px">
+          
+        </button>
+        <button type="button" class="btn btn-default"
+            (click)="data.moveToNextPage()"
+            [disabled]="data.pageIndex >= data.pageCount - 1">
+            <span class="glyphicon glyphicon-step-forward"></span>
+        </button>
+        <button type="button" class="btn btn-default"
+            (click)="data.moveToLastPage()"
+            [disabled]="data.pageIndex >= data.pageCount - 1">
+        <span class="glyphicon glyphicon-fast-forward"></span>
+        </button>
+</div>
+    

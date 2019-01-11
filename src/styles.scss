@@ -1,1 +1,36 @@
 /* You can add global styles to this file, and also import other style files */
+@import "wijmo/styles/wijmo.scss";
+
+.App-panel {
+    margin: 0 48pt;
+    text-align: center;
+}
+.App-panel .wj-control {
+    display: inline-block;
+    background :lightblue;
+    text-align: left;
+
+    width: 100%;
+    height: 300px;
+    vertical-align: top;
+    
+ }
+.grid .wj-cell {
+    border: none;
+    background-color: #fff;
+}
+.flex-table{
+  background: blue;
+}
+
+.wj-flexgrid {
+height: 600px;
+background-color: white;
+box-shadow: 4px 4px 10px 0px rgba(50, 50, 50, 0.75);
+margin-bottom: 12px;
+}
+.wj-flex-grid-column{
+  height:30px;
+  padding:10px;
+  background: blue;
+}
