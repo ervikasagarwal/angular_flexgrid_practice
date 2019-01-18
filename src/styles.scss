@@ -28,9 +28,12 @@ height: 600px;
 background-color: white;
 box-shadow: 4px 4px 10px 0px rgba(50, 50, 50, 0.75);
 margin-bottom: 12px;
+text-align: left;
 }
 .wj-flex-grid-column{
   height:30px;
   padding:10px;
-  background: blue;
+  background-color:red;
+  text-align: left;
+  width:200px;
 }
