@@ -15,25 +15,37 @@
     vertical-align: top;
     
  }
-.grid .wj-cell {
-    border: none;
-    background-color: #fff;
-}
-.flex-table{
-  background: blue;
+
+.flex-table {
+  
+    height:320px;
+    overflow:scroll;
 }
 
-.wj-flexgrid {
-height: 600px;
-background-color: white;
-box-shadow: 4px 4px 10px 0px rgba(50, 50, 50, 0.75);
-margin-bottom: 12px;
-text-align: left;
+.flex-table .wj-cell {
+    background-color: white !important;
+    height:40px;
+    color:black;
+    border-right: solid 1px black;
+    border-bottom: solid 1px black;
+    text-align: left;
 }
-.wj-flex-grid-column{
-  height:30px;
-  padding:10px;
-  background-color:red;
-  text-align: left;
-  width:200px;
+
+.flex-table  .wj-header.wj-cell {
+    background-color: white !important;
+    color: black !important;
+    font-weight: bold;
+    height:40px;
+    text-align:center;
+    border-top: solid 1px black;
+    text-align: center;
 }
+
+
+.wj-state-selected, .wj-state-multi-selected {
+    border-width: 0.1;
+   
+    font-size: .95em !important; 
+    color:black;
+    }
+    

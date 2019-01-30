@@ -1,19 +1,35 @@
 
-
-<wj-flex-grid [itemsSource]="data"   [childItemsPath]="'childs'" class="flex-table" id="host_element" >
-    <wj-flex-grid-column [header]="'Sequence'" allow-dragging="false" [binding]="'Sequence'" id="host_element" [isRequired]="true" ></wj-flex-grid-column>
-    <wj-flex-grid-column [header]="'Number'" [binding]="'Number'"   [isRequired]="false"></wj-flex-grid-column>
-    <wj-flex-grid-column [header]="'Name'" [binding]="'Name'"   [isRequired]="false"></wj-flex-grid-column>
+<div style="height:200px;"></div>
+<wj-flex-grid [itemsSource]="data"   [childItemsPath]="'childs'" class="flex-table" id="host_element" style="border:none;">
+    <wj-flex-grid-column [header]="'Sequence'" allow-dragging="false" [binding]="'Sequence'" [width]="200" [isRequired]="true" style="font-size:35px;" ></wj-flex-grid-column>
+    <wj-flex-grid-column [header]="'Number'" #ref [binding]="'Number'"   [isRequired]="false"  [width]="100" id="host_element"></wj-flex-grid-column>
     
+    <wj-flex-grid-column [header]="Number" [isReadOnly]="true" [width]="50" >
+            
+         <ng-template wjFlexGridCellTemplate [cellType]="'Cell'" let-cell="cell" let-item="item">
+                    <span
+                    class="glyphicon glyphicon-plus" style="text-align: center;"
+                    (click)="showClicked($item)">
+            </span>
+        </ng-template>
+    </wj-flex-grid-column>
+    
+    
+    <wj-flex-grid-column [header]="'Name'" [binding]="'Name'"   [isRequired]="false"></wj-flex-grid-column>
     <wj-flex-grid-column [header]="'Revision'" [binding]="'Revision'" isDisabled="false"   [isRequired]="false"></wj-flex-grid-column>
-    <wj-flex-grid-column [header]="'Quantity'" #flex [binding]="'Quantity'"   [isRequired]="false"></wj-flex-grid-column>
+   
+    <wj-flex-grid-column [header]="'Quantity'"  [binding]="'Quantity'"   [isRequired]="false"></wj-flex-grid-column>
     <wj-flex-grid-column [header]="'UOM'" [binding]="'UOM'"   [isRequired]="false"></wj-flex-grid-column>
-    <wj-flex-grid-column [header]="'Procument Type'" [binding]="'Procument Type'"      [isRequired]="false"></wj-flex-grid-column>
-    <wj-flex-grid-column [header]="'Enforce Integer Requirement'" [binding]="'Enforce Integer Requirement'"    [isRequired]="false"></wj-flex-grid-column>
-    <wj-flex-grid-column [header]="'Include in Cost Rollup'" [binding]="'TOTAL COST'"    [isRequired]="false"></wj-flex-grid-column>
+    <wj-flex-grid-column [header]="'Procument Type'" [binding]="'Procument Type'"  [width]="200"    [isRequired]="false"></wj-flex-grid-column>
+    <wj-flex-grid-column [header]="'Enforce Integer Requirement'" [binding]="'Enforce Integer Requirement'" [width]="200"  [isRequired]="false"></wj-flex-grid-column>
+    <wj-flex-grid-column [header]="'Include in Cost Rollup'" [binding]="'TOTAL COST'" [width]="200"   [isRequired]="false"></wj-flex-grid-column>
     <wj-flex-grid-column [header]="'Start Date'" [binding]="'Start Date'"    [isRequired]="false"></wj-flex-grid-column>
     <wj-flex-grid-column [header]="'End Date'" [binding]="'End Date'"    [isRequired]="false"></wj-flex-grid-column>
+   
+        
+ 
 </wj-flex-grid>
+{{ ref.header}}
 <div class="btn-group" style="align:right; padding-left:30px;">
         <button type="button" class="btn btn-default"
             (click)="data.moveToFirstPage()"

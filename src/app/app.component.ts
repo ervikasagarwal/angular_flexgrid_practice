@@ -1,9 +1,5 @@
 import { Component } from '@angular/core';
 
-// import * as wjcGridDetail from 'wijmo/wijmo.grid.detail';
-
-// import * as wjcCore from 'wijmo/wijmo';
-// import * as wjcGrid from 'wijmo/wijmo.grid';
 import { getData } from '../model/data.js';
 @Component({
   selector: 'app-root',
@@ -28,5 +24,9 @@ export class AppComponent {
         expenses: Math.random() * 5000
       });
     }
+  }
+
+  showClicked(item){
+      alert('add someting to ' + JSON.stringify(item));
   }
 }
