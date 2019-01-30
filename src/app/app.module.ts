@@ -8,7 +8,7 @@ import { AppComponent } from './app.component';
 // import Wijmo 
 import { WjGridModule } from 'wijmo/wijmo.angular2.grid';
 import { WjChartModule } from 'wijmo/wijmo.angular2.chart';
-
+import { WjInputModule } from 'wijmo/wijmo.angular2.input';
 // apply Wijmo license key
 
 import { setLicenseKey } from 'wijmo/wijmo';
@@ -23,6 +23,7 @@ setLicenseKey('AA4BDgIOB3ZiAG8AbQAdGypIyVaJkyNnTi47Tz6DbRvesDUuFepkuaRTdQOSmG5SS
     AppRoutingModule,
     WjChartModule,
     WjGridModule,
+    WjInputModule
 
   ],
   providers: [],

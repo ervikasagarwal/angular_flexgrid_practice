@@ -18,7 +18,7 @@
 
 .flex-table {
   
-    height:320px;
+    max-height:320px;
     overflow:scroll;
 }
 
@@ -42,10 +42,10 @@
 }
 
 
-.wj-state-selected, .wj-state-multi-selected {
-    border-width: 0.1;
+// .wj-state-selected, .wj-state-multi-selected {
+//     border-width: 0.1;
    
-    font-size: .95em !important; 
-    color:black;
-    }
+//     font-size: .95em !important; 
+//     color:black;
+//     }
     

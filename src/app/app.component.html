@@ -1,34 +1,43 @@
 
 <div style="height:200px;"></div>
-<wj-flex-grid [itemsSource]="data"   [childItemsPath]="'childs'" class="flex-table" id="host_element" style="border:none;">
+<wj-flex-grid [itemsSource]="data"  #flexEdit (cellEditEnding)="cellEditEndingHandler(flexEdit)" [allowAddNew] = 'true'   [childItemsPath]="'childs'" class="flex-table" id="host_element" style="border:none;">
     <wj-flex-grid-column [header]="'Sequence'" allow-dragging="false" [binding]="'Sequence'" [width]="200" [isRequired]="true" style="font-size:35px;" ></wj-flex-grid-column>
-    <wj-flex-grid-column [header]="'Number'" #ref [binding]="'Number'"   [isRequired]="false"  [width]="100" id="host_element"></wj-flex-grid-column>
-    
-    <wj-flex-grid-column [header]="Number" [isReadOnly]="true" [width]="50" >
+    <wj-flex-grid-column [header]="'Number'" #ref [binding]="'Number'"     [isRequired]="false"  [width]="100" id="host_element"></wj-flex-grid-column>
+    <wj-flex-grid-column [header]="Number" [allowResizing]="false" (click)="showClicked('hi')"  [width]="50" >
             
-         <ng-template wjFlexGridCellTemplate [cellType]="'Cell'" let-cell="cell" let-item="item">
+         <ng-template wjFlexGridCellTemplate  [cellType]="'Cell'"  let-cell="cell" let-item="item" style="text-align: center;">
                     <span
-                    class="glyphicon glyphicon-plus" style="text-align: center;"
-                    (click)="showClicked($item)">
-            </span>
+                     class="glyphicon glyphicon-plus-sign" style="text-align:center;color:lightblue;font-size:25px;padding-left:5px;"
+                     (click)="showClicked(cell)">
+                    </span>
         </ng-template>
+        
     </wj-flex-grid-column>
-    
-    
     <wj-flex-grid-column [header]="'Name'" [binding]="'Name'"   [isRequired]="false"></wj-flex-grid-column>
-    <wj-flex-grid-column [header]="'Revision'" [binding]="'Revision'" isDisabled="false"   [isRequired]="false"></wj-flex-grid-column>
-   
+    <wj-flex-grid-column [header]="'Revision'" [binding]="'Revision'" isDisabled="false"  [width]="100"   [isRequired]="false"></wj-flex-grid-column>
+    <wj-flex-grid-column [header]="Number"  [width]="100" >
+            
+            <ng-template wjFlexGridCellTemplate [cellType]="'Cell'" let-cell="cell" let-item="item">
+                       <input type="text" class="form-control" >
+           </ng-template>
+       </wj-flex-grid-column>
     <wj-flex-grid-column [header]="'Quantity'"  [binding]="'Quantity'"   [isRequired]="false"></wj-flex-grid-column>
     <wj-flex-grid-column [header]="'UOM'" [binding]="'UOM'"   [isRequired]="false"></wj-flex-grid-column>
-    <wj-flex-grid-column [header]="'Procument Type'" [binding]="'Procument Type'"  [width]="200"    [isRequired]="false"></wj-flex-grid-column>
-    <wj-flex-grid-column [header]="'Enforce Integer Requirement'" [binding]="'Enforce Integer Requirement'" [width]="200"  [isRequired]="false"></wj-flex-grid-column>
-    <wj-flex-grid-column [header]="'Include in Cost Rollup'" [binding]="'TOTAL COST'" [width]="200"   [isRequired]="false"></wj-flex-grid-column>
+    <wj-flex-grid-column [header]="'Procument Type'" [binding]="'Procument Type'"  [width]="150"    [isRequired]="false"></wj-flex-grid-column>
+    <wj-flex-grid-column [header]="'Enforce Integer Requirement'"   [binding]="'Enforce Integer Requirement'" [width]="200"  [isRequired]="false"></wj-flex-grid-column>
+    <wj-flex-grid-column [header]="'Include in Cost Rollup'"   [binding]="'TOTAL COST'" [width]="150"   [isRequired]="false"></wj-flex-grid-column>
     <wj-flex-grid-column [header]="'Start Date'" [binding]="'Start Date'"    [isRequired]="false"></wj-flex-grid-column>
-    <wj-flex-grid-column [header]="'End Date'" [binding]="'End Date'"    [isRequired]="false"></wj-flex-grid-column>
-   
+    <wj-flex-grid-column [header]="'End Date'" [binding]="'End Date'"    [isRequired]="false">
+            
+    </wj-flex-grid-column>
+     
         
  
-</wj-flex-grid>
+ </wj-flex-grid>
+
+ <wj-flex-grid  [(itemsSource)]="data">
+    </wj-flex-grid>
+ <!--
 {{ ref.header}}
 <div class="btn-group" style="align:right; padding-left:30px;">
         <button type="button" class="btn btn-default"
@@ -54,5 +63,5 @@
             [disabled]="data.pageIndex >= data.pageCount - 1">
             <span class="glyphicon glyphicon-fast-forward"></span>
         </button>
-</div>
+</div> -->
     
