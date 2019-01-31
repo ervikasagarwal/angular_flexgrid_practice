@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-
+import { FormsModule }   from '@angular/forms';
 
 // import Wijmo 
 import { WjGridModule } from 'wijmo/wijmo.angular2.grid';
@@ -23,7 +23,8 @@ setLicenseKey('AA4BDgIOB3ZiAG8AbQAdGypIyVaJkyNnTi47Tz6DbRvesDUuFepkuaRTdQOSmG5SS
     AppRoutingModule,
     WjChartModule,
     WjGridModule,
-    WjInputModule
+    WjInputModule,
+    FormsModule
 
   ],
   providers: [],

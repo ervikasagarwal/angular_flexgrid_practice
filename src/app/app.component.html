@@ -1,5 +1,50 @@
 
 <div style="height:200px;"></div>
+<div *ngIf="showform" class=" row col-sm-12 ">
+    <form #formvalues="ngForm" (ngSubmit)="handleFormSubmit()" >
+          <div class=" col-sm-1">
+            <input type="text" class="form-control" [(ngModel)]="newComp.name" placeholder="Sequence" name="Sequence">
+        </div>
+        <div class=" col-sm-1">
+
+            <input type="text" class="form-control col-sm-1" placeholder="Number" name="Number">
+        </div>
+        <div class=" col-sm-1">
+
+            <input type="text" class="form-control col-sm-1" placeholder="Name" name="Name">
+       </div>
+          <div class=" col-sm-1">
+
+            <input type="text" class="form-control col-sm-1" placeholder="Revision" name="Revision">
+        </div>  <div class=" col-sm-1">
+
+            <input type="text" class="form-control col-sm-1" placeholder="Quantity" name="Quantity">
+       </div>   <div class=" col-sm-1">
+
+            <input type="text" class="form-control col-sm-1" placeholder="UOM" name="UOM">
+       </div>   <div class=" col-sm-1">
+
+            <input type="text" class="form-control col-sm-1" placeholder="Enforce Integer Requirement" name="Enforce">
+        </div>  <div class=" col-sm-1">
+
+            <input type="text" class="form-control col-sm-1" placeholder="Include" name="Include">
+         </div> <div class=" col-sm-1">
+
+            <input type="text" class="form-control col-sm-1" placeholder="Start Date" name="Start Date">
+        </div>  <div class=" col-sm-1">
+
+            <input type="text" class="form-control col-sm-1" placeholder="End Date" name="End Date">
+         </div> <div class=" col-sm-1">
+
+
+            <input type="Submit" class=" btn-info form-control btn col-sm-1" placeholder="" value="add" >
+         </div>
+
+    </form>
+</div>
+{{ form.values | json }}
+<div style="height:40px;"></div>
+
 <wj-flex-grid [itemsSource]="data"  #flexEdit (cellEditEnding)="cellEditEndingHandler(flexEdit)" [allowAddNew] = 'true'   [childItemsPath]="'childs'" class="flex-table" id="host_element" style="border:none;">
     <wj-flex-grid-column [header]="'Sequence'" allow-dragging="false" [binding]="'Sequence'" [width]="200" [isRequired]="true" style="font-size:35px;" ></wj-flex-grid-column>
     <wj-flex-grid-column [header]="'Number'" #ref [binding]="'Number'"     [isRequired]="false"  [width]="100" id="host_element"></wj-flex-grid-column>
@@ -11,7 +56,6 @@
                      (click)="showClicked(cell)">
                     </span>
         </ng-template>
-        
     </wj-flex-grid-column>
     <wj-flex-grid-column [header]="'Name'" [binding]="'Name'"   [isRequired]="false"></wj-flex-grid-column>
     <wj-flex-grid-column [header]="'Revision'" [binding]="'Revision'" isDisabled="false"  [width]="100"   [isRequired]="false"></wj-flex-grid-column>
@@ -35,8 +79,8 @@
  
  </wj-flex-grid>
 
- <wj-flex-grid  [(itemsSource)]="data">
-    </wj-flex-grid>
+ <!-- <wj-flex-grid  [(itemsSource)]="data">
+    </wj-flex-grid> -->
  <!--
 {{ ref.header}}
 <div class="btn-group" style="align:right; padding-left:30px;">
